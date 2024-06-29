@@ -11,7 +11,7 @@ const QAComponent = () => {
     const handleAsk = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://192.168.1.2:8000/answer?question=${encodeURIComponent(question)}`);
+            const response = await fetch(`https://otto-assist.vercel.app/answer?question=${encodeURIComponent(question)}`);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -25,7 +25,7 @@ const QAComponent = () => {
 
     const handleProvideAnswer = async () => {
         try {
-            const response = await fetch('http://192.168.1.2:8000/answer', {
+            const response = await fetch('https://otto-assist.vercel.app/answer', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
