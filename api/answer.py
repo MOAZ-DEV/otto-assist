@@ -44,3 +44,8 @@ def handler(request):
     from werkzeug.middleware.proxy_fix import ProxyFix
     app.wsgi_app = ProxyFix(app.wsgi_app)
     return app(request.scope, request.receive, request.send)
+
+
+# if __name__ == '__main__':
+#     app.run(debug=True, host='0.0.0.0', port=3000)
+    

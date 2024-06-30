@@ -1,5 +1,5 @@
 "use client"
-import { AwaitedReactNode, FormEvent, JSXElementConstructor, ReactElement, ReactNode, useState } from 'react';
+import { FormEvent, useState } from 'react';
 
 const QAComponent = () => {
     const [question, setQuestion] = useState('');
@@ -11,7 +11,7 @@ const QAComponent = () => {
     const handleAsk = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const response = await fetch(`https://otto-assist.vercel.app/answer?question=${encodeURIComponent(question)}`);
+            const response = await fetch(`/api/answer?question=${encodeURIComponent(question)}`);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -25,7 +25,7 @@ const QAComponent = () => {
 
     const handleProvideAnswer = async () => {
         try {
-            const response = await fetch('https://otto-assist.vercel.app/answer', {
+            const response = await fetch('/api/answer', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
