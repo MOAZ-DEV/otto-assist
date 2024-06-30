@@ -1,4 +1,4 @@
-import QAComponent from "./QAComponent";
+import QAComponent from "../components/QAComponent";
 
 export default function Home() {
     return (
